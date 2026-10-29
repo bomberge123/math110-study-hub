@@ -744,7 +744,8 @@ if (joinButton) {
     });
 
 }
-
+// CLOSE updatePeerConversation()
+}
 
 // -------------------------------------
 // MAIN AI RESPONSE
