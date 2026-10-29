@@ -744,7 +744,7 @@ if (joinButton) {
     });
 
 }
-// CLOSE updatePeerConversation()
+// closes updatePeerConversation()
 }
 
 // -------------------------------------
