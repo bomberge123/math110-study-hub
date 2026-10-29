@@ -410,3 +410,215 @@ footer {
     }
 
 }
+/* ------------------------------
+   AI RESPONSE
+-------------------------------- */
+
+.hidden {
+    display: none;
+}
+
+.ai-response {
+    margin-top: 28px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e1e5e8;
+}
+
+.response-label {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+
+    color: #17324d;
+}
+
+.response-icon {
+    width: 28px;
+    height: 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e9f0f6;
+
+    border-radius: 50%;
+}
+
+#response-text {
+    background: #f7f9fa;
+
+    border-left: 4px solid #17324d;
+
+    padding: 18px 20px;
+
+    border-radius: 4px;
+
+    font-size: 15px;
+}
+
+#response-text p:first-child {
+    margin-top: 0;
+}
+
+#response-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* FOLLOW-UP OPTIONS */
+
+.follow-up-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.follow-up-buttons button {
+    background: white;
+
+    border: 1px solid #aebbc5;
+    border-radius: 20px;
+
+    padding: 8px 13px;
+
+    color: #35495a;
+
+    cursor: pointer;
+}
+
+.follow-up-buttons button:hover {
+    background: #eef3f7;
+}
+
+
+/* ------------------------------
+   AI → PEER CONNECTION
+-------------------------------- */
+
+.peer-connection {
+    margin-top: 30px;
+
+    background: #f4f7f9;
+
+    border-radius: 8px;
+
+    padding: 22px;
+}
+
+.peer-label {
+    margin-top: 0;
+
+    color: #607284;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.peer-post {
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 15px;
+}
+
+.peer-question {
+    margin: 4px 0 8px;
+
+    font-size: 15px;
+
+    color: #333;
+}
+
+.text-button {
+    border: none;
+
+    background: none;
+
+    padding: 0;
+
+    color: #17324d;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+}
+
+
+/* CLASSMATE RESPONSES */
+
+.class-discussion {
+    margin-top: 20px;
+
+    margin-left: 54px;
+
+    border-top: 1px solid #d7dde2;
+}
+
+.classmate-reply {
+    padding: 16px 0;
+
+    border-bottom: 1px solid #d7dde2;
+}
+
+.classmate-reply strong {
+    color: #17324d;
+
+    font-size: 14px;
+}
+
+.classmate-reply p {
+    margin-bottom: 0;
+
+    font-size: 14px;
+
+    color: #444;
+}
+
+
+/* JOIN DISCUSSION */
+
+.join-conversation {
+    margin-top: 20px;
+
+    background: white;
+
+    border: 1px solid #d7dde2;
+    border-radius: 6px;
+
+    padding: 18px;
+}
+
+.join-conversation p {
+    margin-top: 0;
+}
+
+.join-conversation button {
+    background: #17324d;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 10px 15px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
