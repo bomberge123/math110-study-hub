@@ -583,6 +583,158 @@ function updatePeerConversation(topic) {
         }
 
     });
+ // -------------------------------------
+    // JOIN THE CLASSMATE CONVERSATION
+    // -------------------------------------
+
+    const joinButton = document.getElementById("join-button");
+
+    joinButton.addEventListener("click", function() {
+
+        const joinArea =
+            document.querySelector(".join-conversation");
+
+        joinArea.innerHTML = `
+            <p>
+                <strong>Add your perspective</strong>
+            </p>
+
+            <p class="sharing-reminder">
+                🔒 Your Course Assistant conversation stays private.
+                Only the message you write below will be shared
+                with classmates.
+            </p>
+
+            <label for="classmate-reply">
+                What would you like to add?
+            </label>
+
+            <textarea
+                id="classmate-reply"
+                class="reply-box"
+                placeholder="Write something to your classmates..."
+                rows="4"
+            ></textarea>
+
+            <div class="posting-actions">
+
+                <button
+                    id="cancel-reply"
+                    class="cancel-button"
+                >
+                    Cancel
+                </button>
+
+                <button id="post-reply">
+                    Post to classmates
+                </button>
+
+            </div>
+        `;
+
+
+        // CANCEL POST
+
+        document
+            .getElementById("cancel-reply")
+            .addEventListener("click", function() {
+
+                joinArea.innerHTML = `
+                    <p>
+                        <strong>Want a human perspective?</strong>
+                        You can join this conversation,
+                        or just keep reading.
+                    </p>
+
+                    <button id="join-button-again">
+                        Join the conversation
+                    </button>
+                `;
+
+
+                document
+                    .getElementById("join-button-again")
+                    .addEventListener("click", function() {
+
+                        updatePeerConversation(topic);
+
+                        classDiscussion.classList.remove("hidden");
+
+                    });
+
+            });
+
+
+        // POST MESSAGE
+
+        document
+            .getElementById("post-reply")
+            .addEventListener("click", function() {
+
+                const reply =
+                    document
+                        .getElementById("classmate-reply")
+                        .value
+                        .trim();
+
+
+                if (reply === "") {
+
+                    document
+                        .getElementById("classmate-reply")
+                        .focus();
+
+                    return;
+
+                }
+
+
+                const newReply =
+                    document.createElement("div");
+
+                newReply.className =
+                    "classmate-reply adam-reply";
+
+
+                newReply.innerHTML = `
+                    <div class="reply-heading">
+                        <strong>Adam</strong>
+                        <span>Just now</span>
+                    </div>
+
+                    <p>${escapeHTML(reply)}</p>
+
+                    <span class="posted-status">
+                        ✓ Posted to classmates
+                    </span>
+                `;
+
+
+                classDiscussion.insertBefore(
+                    newReply,
+                    joinArea
+                );
+
+
+                joinArea.innerHTML = `
+                    <div class="post-success">
+
+                        <strong>
+                            Thanks for joining the conversation.
+                        </strong>
+
+                        <p>
+                            Your message was shared with classmates.
+                            Your Course Assistant conversation
+                            remains private.
+                        </p>
+
+                    </div>
+                `;
+
+            });
+
+    });   
 
 }
 
@@ -778,5 +930,19 @@ if (showDiscussion) {
         classDiscussion.classList.toggle("hidden");
 
     });
+
+}
+// -------------------------------------
+// DISPLAY USER-WRITTEN TEXT SAFELY
+// -------------------------------------
+
+function escapeHTML(text) {
+
+    const element =
+        document.createElement("div");
+
+    element.textContent = text;
+
+    return element.innerHTML;
 
 }
