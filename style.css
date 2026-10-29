@@ -622,3 +622,123 @@ footer {
 
     cursor: pointer;
 }
+/* ------------------------------
+   JOIN CLASSMATE CONVERSATION
+-------------------------------- */
+
+.sharing-reminder {
+    background: #f3f6f8;
+
+    border-left: 3px solid #607284;
+
+    padding: 11px 13px;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    color: #4f5d68;
+}
+
+.join-conversation label {
+    display: block;
+
+    margin: 18px 0 7px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #17324d;
+}
+
+.reply-box {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #aebbc5;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    resize: vertical;
+}
+
+.reply-box:focus {
+    outline: 2px solid #17324d;
+    outline-offset: 1px;
+}
+
+
+/* POSTING BUTTONS */
+
+.posting-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 12px;
+}
+
+.posting-actions .cancel-button {
+    background: white;
+
+    color: #35495a;
+
+    border: 1px solid #aebbc5;
+}
+
+
+/* ADAM'S NEW POST */
+
+.adam-reply {
+    background: #f8fafb;
+
+    margin: 0 -10px;
+
+    padding: 16px 10px;
+}
+
+.reply-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reply-heading span {
+    color: #777;
+
+    font-size: 12px;
+}
+
+.posted-status {
+    display: inline-block;
+
+    margin-top: 4px;
+
+    color: #526c5b;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.post-success {
+    background: #f4f7f5;
+
+    border-radius: 5px;
+
+    padding: 14px;
+
+    font-size: 14px;
+}
+
+.post-success p {
+    margin-bottom: 0;
+
+    color: #555;
+}
