@@ -587,7 +587,9 @@ function updatePeerConversation(topic) {
     // JOIN THE CLASSMATE CONVERSATION
     // -------------------------------------
 
-    const joinButton = document.getElementById("join-button");
+const joinButton = document.getElementById("join-button");
+
+if (joinButton) {
 
     joinButton.addEventListener("click", function() {
 
@@ -601,8 +603,7 @@ function updatePeerConversation(topic) {
 
             <p class="sharing-reminder">
                 🔒 Your Course Assistant conversation stays private.
-                Only the message you write below will be shared
-                with classmates.
+                Only the message below will be shared with classmates.
             </p>
 
             <label for="classmate-reply">
@@ -633,108 +634,114 @@ function updatePeerConversation(topic) {
         `;
 
 
-        // CANCEL POST
+        // POST BUTTON
 
-        document
-            .getElementById("cancel-reply")
-            .addEventListener("click", function() {
+        const postButton =
+            document.getElementById("post-reply");
 
-                joinArea.innerHTML = `
+
+        postButton.addEventListener("click", function() {
+
+            const replyBox =
+                document.getElementById("classmate-reply");
+
+            const reply =
+                replyBox.value.trim();
+
+
+            if (reply === "") {
+
+                replyBox.focus();
+                return;
+
+            }
+
+
+            const newReply =
+                document.createElement("div");
+
+            newReply.className =
+                "classmate-reply adam-reply";
+
+
+            newReply.innerHTML = `
+                <div class="reply-heading">
+
+                    <strong>Adam</strong>
+
+                    <span>
+                        Just now
+                    </span>
+
+                </div>
+
+                <p>
+                    ${escapeHTML(reply)}
+                </p>
+
+                <span class="posted-status">
+                    ✓ Posted to classmates
+                </span>
+            `;
+
+
+            classDiscussion.insertBefore(
+                newReply,
+                joinArea
+            );
+
+
+            joinArea.innerHTML = `
+                <div class="post-success">
+
+                    <strong>
+                        Thanks for joining the conversation.
+                    </strong>
+
                     <p>
-                        <strong>Want a human perspective?</strong>
-                        You can join this conversation,
-                        or just keep reading.
+                        Your message was shared with classmates.
+                        Your Course Assistant conversation
+                        remains private.
                     </p>
 
-                    <button id="join-button-again">
-                        Join the conversation
-                    </button>
-                `;
+                </div>
+            `;
+
+        });
 
 
-                document
-                    .getElementById("join-button-again")
-                    .addEventListener("click", function() {
+        // CANCEL BUTTON
 
-                        updatePeerConversation(topic);
-
-                        classDiscussion.classList.remove("hidden");
-
-                    });
-
-            });
+        const cancelButton =
+            document.getElementById("cancel-reply");
 
 
-        // POST MESSAGE
+        cancelButton.addEventListener("click", function() {
 
-        document
-            .getElementById("post-reply")
-            .addEventListener("click", function() {
+            joinArea.innerHTML = `
+                <p>
+                    <strong>Want a human perspective?</strong>
+                    You can join this conversation,
+                    or just keep reading.
+                </p>
 
-                const reply =
-                    document
-                        .getElementById("classmate-reply")
-                        .value
-                        .trim();
+                <button id="join-button">
+                    Join the conversation
+                </button>
+            `;
 
+            // Reconnect the button by rebuilding
+            // the current peer conversation.
 
-                if (reply === "") {
+            updatePeerConversation(
+                topics[currentTopic]
+            );
 
-                    document
-                        .getElementById("classmate-reply")
-                        .focus();
+            classDiscussion.classList.remove("hidden");
 
-                    return;
+        });
 
-                }
-
-
-                const newReply =
-                    document.createElement("div");
-
-                newReply.className =
-                    "classmate-reply adam-reply";
-
-
-                newReply.innerHTML = `
-                    <div class="reply-heading">
-                        <strong>Adam</strong>
-                        <span>Just now</span>
-                    </div>
-
-                    <p>${escapeHTML(reply)}</p>
-
-                    <span class="posted-status">
-                        ✓ Posted to classmates
-                    </span>
-                `;
-
-
-                classDiscussion.insertBefore(
-                    newReply,
-                    joinArea
-                );
-
-
-                joinArea.innerHTML = `
-                    <div class="post-success">
-
-                        <strong>
-                            Thanks for joining the conversation.
-                        </strong>
-
-                        <p>
-                            Your message was shared with classmates.
-                            Your Course Assistant conversation
-                            remains private.
-                        </p>
-
-                    </div>
-                `;
-
-            });
-
-    });   
+    });
 
 }
 
