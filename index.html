@@ -342,15 +342,129 @@
 
     <footer>
 
-        <p>
-            MATH 110 • Introduction to Statistics
-        </p>
+    <p>
+        MATH 110 • Introduction to Statistics
+    </p>
+
+    <div class="footer-right">
+
+        <button id="about-button" class="about-button">
+            ⓘ About this prototype
+        </button>
 
         <p class="prototype">
             Study Hub Prototype
         </p>
 
-    </footer>
+    </div>
+
+</footer>
+
+
+<!-- ABOUT PROTOTYPE MODAL -->
+
+<div
+    id="about-modal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="about-title"
+>
+
+    <div class="modal-content">
+
+        <button
+            id="close-about"
+            class="modal-close"
+            aria-label="Close About this prototype"
+        >
+            ×
+        </button>
+
+        <p class="eyebrow">
+            DESIGN PROTOTYPE
+        </p>
+
+        <h2 id="about-title">
+            About the MATH 110 Study Hub
+        </h2>
+
+        <p>
+            The Study Hub explores how AI could provide
+            just-in-time support in an asynchronous statistics
+            course while also creating opportunities for
+            meaningful peer connection.
+        </p>
+
+
+        <div class="about-section">
+
+            <h3>🤖 What the Course Assistant does</h3>
+
+            <p>
+                The Course Assistant provides immediate,
+                private help when a learner gets stuck.
+                It can explain concepts, provide examples,
+                offer another explanation, and check
+                understanding.
+            </p>
+
+        </div>
+
+
+        <div class="about-section">
+
+            <h3>👥 Where classmates come in</h3>
+
+            <p>
+                After receiving AI support, learners may see
+                relevant conversations from classmates who
+                have wondered about similar concepts.
+                Learners can read those perspectives without
+                posting and choose whether they want to join
+                the conversation.
+            </p>
+
+        </div>
+
+
+        <div class="about-section privacy-section">
+
+            <h3>🔒 Privacy by design</h3>
+
+            <p>
+                Questions asked privately to the Course Assistant
+                are not shared with classmates. Learners explicitly
+                choose when they want to contribute something to
+                the course community.
+            </p>
+
+        </div>
+
+
+        <div class="prototype-note">
+
+            <strong>What is simulated?</strong>
+
+            <p>
+                This is an interactive design prototype, not a
+                fully implemented AI system. AI responses,
+                classmate activity, and discussion posts are
+                simulated for demonstration purposes.
+            </p>
+
+            <p>
+                A full implementation would require a course-grounded
+                AI system, student authentication, LMS integration,
+                persistent discussion storage, privacy controls,
+                and moderation.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
     <script src="script.js"></script>
