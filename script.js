@@ -953,3 +953,80 @@ function escapeHTML(text) {
     return element.innerHTML;
 
 }
+// -------------------------------------
+// ABOUT PROTOTYPE MODAL
+// -------------------------------------
+
+const aboutButton =
+    document.getElementById("about-button");
+
+const aboutModal =
+    document.getElementById("about-modal");
+
+const closeAbout =
+    document.getElementById("close-about");
+
+
+function openAboutModal() {
+
+    aboutModal.classList.remove("hidden");
+
+    closeAbout.focus();
+
+}
+
+
+function closeAboutModal() {
+
+    aboutModal.classList.add("hidden");
+
+    aboutButton.focus();
+
+}
+
+
+// OPEN
+
+aboutButton.addEventListener("click", function() {
+
+    openAboutModal();
+
+});
+
+
+// CLOSE BUTTON
+
+closeAbout.addEventListener("click", function() {
+
+    closeAboutModal();
+
+});
+
+
+// CLICK OUTSIDE WINDOW TO CLOSE
+
+aboutModal.addEventListener("click", function(event) {
+
+    if (event.target === aboutModal) {
+
+        closeAboutModal();
+
+    }
+
+});
+
+
+// ESCAPE KEY TO CLOSE
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Escape" &&
+        !aboutModal.classList.contains("hidden")
+    ) {
+
+        closeAboutModal();
+
+    }
+
+});
